@@ -1,0 +1,73 @@
+{
+  "medicin": [
+    {
+      "Mname": "ee",
+      "qua": 55,
+      "price": 555,
+      "year": 5555,
+      "id": 5
+    },
+    {
+      "Mname": "ff",
+      "qua": 66,
+      "price": 666,
+      "year": 6666,
+      "id": 6
+    },
+    {
+      "Mname": "gg",
+      "qua": 77,
+      "price": 777,
+      "year": 7777,
+      "id": 7
+    },
+    {
+      "Mname": "aa",
+      "qua": 11,
+      "price": 111,
+      "year": 1111,
+      "id": 8
+    },
+    {
+      "Mname": "bb",
+      "qua": 22,
+      "price": 222,
+      "year": 2222,
+      "id": 9
+    }
+  ],
+  "doctor": [
+    {
+      "Name": "abcd",
+      "Description": "kjfkjygk",
+      "price": "",
+      "Qualification": "45",
+      "id": 9
+    },
+    {
+      "Name": "jytjytfj",
+      "Description": "mjgmjyg",
+      "price": "",
+      "Qualification": "444",
+      "id": 10
+    },
+    {
+      "Name": "abc",
+      "Description": "ddddddddddddd",
+      "price": "",
+      "Qualification": "6564",
+      "id": 11
+    },
+    {
+      "Name": "mhgmjh",
+      "Description": "mjhgjmh",
+      "price": "",
+      "Qualification": "87",
+      "id": 12
+    }
+  ],
+  "comments": [],
+  "profile": {
+    "name": "typicode"
+  }
+}
