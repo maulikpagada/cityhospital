@@ -1,13 +1,6 @@
 {
   "medicin": [
     {
-      "Mname": "ee",
-      "qua": 55,
-      "price": 555,
-      "year": 5555,
-      "id": 5
-    },
-    {
       "Mname": "ff",
       "qua": 66,
       "price": 666,
@@ -34,6 +27,23 @@
       "price": 222,
       "year": 2222,
       "id": 9
+    },
+    {
+      "Mname": "a",
+      "qua": 12,
+      "price": 12,
+      "year": 12,
+      "id": 15
+    },
+    {
+      "id": 16
+    },
+    {
+      "Mname": "b",
+      "qua": 78,
+      "price": 78,
+      "year": 78,
+      "id": 17
     }
   ],
   "doctor": [

@@ -43,6 +43,48 @@ function MedNew(props) {
         dispatch(getmedicin());
     }, [])
 
+    const medicineData = (values) => {
+        // let localData = JSON.parse(localStorage.getItem("medicine"));
+
+        // let idData = Math.round(Math.random() * 1000);
+        // let Mdata = { ...values, id: idData }
+
+        // if (localData !== null) {
+        //     localData.push(Mdata)
+        //     localStorage.setItem("medicine", JSON.stringify(localData))
+        //     setMedData(localData)
+        // } else {
+        //     setMedData([Mdata])
+        //     localStorage.setItem("medicine", JSON.stringify([Mdata]))
+        // }
+        // formikobj.resetForm()
+
+        dispatch(postmedicin(values))
+    }
+
+    const handleUpdateData = (values) => {
+
+        // let localData = JSON.parse(localStorage.getItem("medicine"));
+
+        // let updateData = localData.map((l) => {
+
+        //     if (l.id === values.id) {
+        //         return values;
+        //     } else {
+        //         return l;
+        //     }
+        // })
+
+        // localStorage.setItem("medicine", JSON.stringify(updateData))
+        // setMedData(updateData)
+        setEid("");
+        setValues();
+        formikobj.resetForm();
+
+        dispatch(putmedicin(values));
+    }
+
+
     const hendelDelet = (id) => {
         // let localData = JSON.parse(localStorage.getItem("medicine"));
 
@@ -50,9 +92,6 @@ function MedNew(props) {
 
         // localStorage.setItem("medicine", JSON.stringify(dData));
         // setMedData(dData)
-
-        console.log("delete");
-        console.log(id);
 
         dispatch(deletemedicin(id));
         handleDClose();
@@ -94,24 +133,7 @@ function MedNew(props) {
         year: yup.number().required("please enter Year").positive().integer(),
     });
 
-    const medicineData = (values) => {
-        // let localData = JSON.parse(localStorage.getItem("medicine"));
 
-        // let idData = Math.round(Math.random() * 1000);
-        // let Mdata = { ...values, id: idData }
-
-        // if (localData !== null) {
-        //     localData.push(Mdata)
-        //     localStorage.setItem("medicine", JSON.stringify(localData))
-        //     setMedData(localData)
-        // } else {
-        //     setMedData([Mdata])
-        //     localStorage.setItem("medicine", JSON.stringify([Mdata]))
-        // }
-        // formikobj.resetForm()
-
-        dispatch(postmedicin(values))
-    }
     const formikobj = useFormik({
         initialValues: {
             Mname: '',
@@ -141,27 +163,6 @@ function MedNew(props) {
         setValues(values);
     }
 
-    const handleUpdateData = (values) => {
-        
-        // let localData = JSON.parse(localStorage.getItem("medicine"));
-
-        // let updateData = localData.map((l) => {
-
-        //     if (l.id === values.id) {
-        //         return values;
-        //     } else {
-        //         return l;
-        //     }
-        // })
-
-        // localStorage.setItem("medicine", JSON.stringify(updateData))
-        // setMedData(updateData)
-        setEid("");
-        setValues();
-        formikobj.resetForm();
-
-        dispatch(putmedicin(values));
-    }
 
     const [open, setOpen] = React.useState(false);
 
@@ -173,7 +174,7 @@ function MedNew(props) {
         setOpen(false);
     };
 
-    
+
     return (
 
         <div>

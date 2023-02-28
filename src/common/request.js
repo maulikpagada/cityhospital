@@ -16,3 +16,35 @@ export const getRequest = (params) => {
         url: params
     })
 }
+
+export const postRequest = (path, data) => {
+    console.log(data);
+    return sendRequest({
+        method: 'post',
+        url: path,
+        data: JSON.stringify(data),
+        headers: {
+            'content-type': 'application/json'
+        }
+    })
+}
+
+export const putRequest = (path, data) => {
+    console.log(data);
+    return sendRequest({
+        method: 'put',
+        url: path+data.id,
+        data:data,
+        headers: {
+            'content-type': 'application/json'
+        }
+    })
+}
+
+export const deleteRequest = (path, id) => {
+    console.log(id);
+    return sendRequest({
+        method: 'delete',
+        url: path+id
+    })
+}   
