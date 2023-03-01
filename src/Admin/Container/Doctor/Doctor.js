@@ -36,14 +36,58 @@ function Doctor(props) {
     };
 
     useEffect(() => {
-        let localData = JSON.parse(localStorage.getItem("Doctor"));
+        // let localData = JSON.parse(localStorage.getItem("Doctor"));
 
-        if (localData !== null) {
-            setMedData(localData)
-        }
+        // if (localData !== null) {
+        //     setMedData(localData)
+        // }
 
         dispatch(getdoctor());
     }, [])
+
+    const doctorData = (values) => {
+        // let localData = JSON.parse(localStorage.getItem("Doctor"));
+
+        // let idData = Math.round(Math.random() * 1000);
+        // let Mdata = { ...values, id: idData }
+
+        // if (localData !== null) {
+        //     localData.push(Mdata)
+        //     localStorage.setItem("Doctor", JSON.stringify(localData))
+        //     setMedData(localData)
+        // } else {
+        //     setMedData([Mdata])
+        //     localStorage.setItem("Doctor", JSON.stringify([Mdata]))
+        // }
+        // formikobj.resetForm()
+
+        dispatch(postdoctor(values))
+
+    }
+
+
+    const handleUpdateData = (values) => {
+
+        // let localData = JSON.parse(localStorage.getItem("Doctor"));
+
+        // let updateData = localData.map((l) => {
+
+        //     if (l.id === values.id) {
+        //         return values;
+        //     } else {
+        //         return l;
+        //     }
+        // })
+
+        // localStorage.setItem("Doctor", JSON.stringify(updateData))
+
+        // setMedData(updateData)
+        setEid("");
+        setValues();
+        formikobj.resetForm()
+
+        dispatch(putdoctor(values))
+    }
 
     const hendelDelet = (did) => {
         console.log(did);
@@ -54,7 +98,7 @@ function Doctor(props) {
         // localStorage.setItem("Doctor", JSON.stringify(dData));
         // setMedData(dData)
         console.log("delete");
-       
+
 
         // dispatch(deletedoctor(values))
 
@@ -98,33 +142,7 @@ function Doctor(props) {
         Qualification: yup.number().required("please enter Qualification").positive().integer()
     });
 
-    const doctorData = (values) => {
-        // let localData = JSON.parse(localStorage.getItem("Doctor"));
 
-        // let idData = Math.round(Math.random() * 1000);
-        // let Mdata = { ...values, id: idData }
-
-        // if (localData !== null) {
-        //     localData.push(Mdata)
-        //     localStorage.setItem("Doctor", JSON.stringify(localData))
-        //     setMedData(localData)
-        // } else {
-        //     setMedData([Mdata])
-        //     localStorage.setItem("Doctor", JSON.stringify([Mdata]))
-        // }
-        // formikobj.resetForm()
-
-
-
-
-        dispatch(postdoctor(values))
-
-
-
-
-
-        // dispatch(postdoctor(values))
-    }
 
     const formikobj = useFormik({
         initialValues: {
@@ -153,28 +171,6 @@ function Doctor(props) {
     }
 
 
-    const handleUpdateData = (values) => {
-
-        // let localData = JSON.parse(localStorage.getItem("Doctor"));
-
-        // let updateData = localData.map((l) => {
-
-        //     if (l.id === values.id) {
-        //         return values;
-        //     } else {
-        //         return l;
-        //     }
-        // })
-
-        // localStorage.setItem("Doctor", JSON.stringify(updateData))
-
-        // setMedData(updateData)
-        setEid("");
-        setValues();
-        formikobj.resetForm()
-
-        dispatch(putdoctor(values))
-    }
 
     const [open, setOpen] = React.useState(false);
 

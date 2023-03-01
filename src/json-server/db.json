@@ -1,62 +1,31 @@
 {
   "medicin": [
     {
-      "Mname": "ff",
-      "qua": 66,
-      "price": 666,
-      "year": 6666,
-      "id": 6
-    },
-    {
-      "Mname": "gg",
-      "qua": 77,
-      "price": 777,
-      "year": 7777,
-      "id": 7
-    },
-    {
       "Mname": "aa",
       "qua": 11,
       "price": 111,
-      "year": 1111,
-      "id": 8
+      "year": 1212,
+      "id": 1
     },
     {
-      "Mname": "bb",
-      "qua": 22,
-      "price": 222,
-      "year": 2222,
-      "id": 9
+      "Mname": "hh",
+      "qua": 45,
+      "price": 45,
+      "year": 4545,
+      "id": 2
     },
     {
-      "Mname": "a",
-      "qua": 12,
-      "price": 12,
-      "year": 12,
-      "id": 15
-    },
-    {
-      "id": 16
-    },
-    {
-      "Mname": "b",
-      "qua": 78,
-      "price": 78,
-      "year": 78,
-      "id": 17
+      "Mname": "gg",
+      "qua": 548,
+      "price": 6546,
+      "year": 646,
+      "id": 3
     }
   ],
-  "doctor": [
-    {
-      "Name": "abcd",
-      "Description": "kjfkjygk",
-      "price": "",
-      "Qualification": "45",
-      "id": 9
-    },
+  "Doctor": [
     {
       "Name": "jytjytfj",
-      "Description": "mjgmjyg",
+      "Description": "mjgmjygjgkug",
       "price": "",
       "Qualification": "444",
       "id": 10

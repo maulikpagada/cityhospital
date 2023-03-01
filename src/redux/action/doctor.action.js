@@ -3,7 +3,7 @@ import * as ActionTypes from "../ActionTypes"
 export const getdoctor = () => (dispatch) => {
     console.log("action");
     try {
-        fetch('http://localhost:3004/doctor')
+        fetch('http://localhost:3004/doctor/')
             .then((response) => response.json())
             .then((data) => dispatch({ type: ActionTypes.DOCTOR_GET, payload: data }));
     } catch (error) {
@@ -13,7 +13,7 @@ export const getdoctor = () => (dispatch) => {
 
 export const postdoctor = (data1) => (dispatch) => {
     try{
-        fetch('http://localhost:3004/doctor',{
+        fetch('http://localhost:3004/doctor/',{
             method: 'POST',
             headers: {
                 'Content-Type' : 'application/json',
@@ -29,18 +29,18 @@ export const postdoctor = (data1) => (dispatch) => {
 }
 
 
-export const putdoctor = (data) => (dispatch) => {
+export const putdoctor = (data2) => (dispatch) => {
     try{
-        fetch('http://localhost:3004/doctor/' + data.id, {
+        fetch('http://localhost:3004/doctor/' + data2.id, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify(data),
+            body: JSON.stringify(data2),
         })
 
             .then((response => response.json()))
-            .then((data1) => dispatch({ type: ActionTypes.DOCTOR_UPDATE, payload: data}))
+            .then((data) => dispatch({ type: ActionTypes.DOCTOR_UPDATE, payload: data}))
     } catch (error) {
 
     }
