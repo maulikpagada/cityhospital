@@ -35,11 +35,11 @@ function MedNew(props) {
     };
 
     useEffect(() => {
-        let localData = JSON.parse(localStorage.getItem("medicine"));
+        // let localData = JSON.parse(localStorage.getItem("medicine"));
 
-        if (localData !== null) {
-            setMedData(localData)
-        }
+        // if (localData !== null) {
+        //     setMedData(localData)
+        // }
         dispatch(getmedicin());
     }, [])
 

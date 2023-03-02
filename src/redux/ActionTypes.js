@@ -12,3 +12,5 @@ export const DOCTOR_GET = 'DOCTOR_GET';
 export const DOCTOR_ADD = 'DOCTOR_ADD';
 export const DOCTOR_UPDATE = 'DOCTOR_UPDATE';
 export const DOCTOR_DELETE = 'DOCTOR_DELETE';
+
+export const THEME_TOGGLE = 'THEME_TOGGLE';

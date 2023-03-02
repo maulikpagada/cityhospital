@@ -102,9 +102,9 @@ function Doctor(props) {
 
         // dispatch(deletedoctor(values))
 
-        dispatch(deletedoctor(did))
         handleDClose();
         setDid();
+        dispatch(deletedoctor(did))
     }
 
     const columns = [

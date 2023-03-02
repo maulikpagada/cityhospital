@@ -8,7 +8,7 @@ const initialState = {
 
 
 export const doctorReducer = (state = initialState, action) => {
-    console.log(action);
+    // console.log(action);
     switch (action.type) {
         case ActionTypes.DOCTOR_GET:
             return {

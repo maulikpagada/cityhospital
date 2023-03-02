@@ -23,7 +23,7 @@ function Medinice(props) {
         if (value !== "") {
             let filteredData = data.filter((m) => (
                 m.Mname.toLowerCase().includes(value.toLowerCase()) ||
-                m.price.toString().includes(value) ||   
+                m.price.toString().includes(value) ||
                 m.qua.toString().includes(value) ||
                 m.year.toString().includes(value))
             );
@@ -34,15 +34,15 @@ function Medinice(props) {
         }
     }
 
-    const handleSorting = (value, empty='') => {
+    const handleSorting = (value, empty = '') => {
 
-        let FData = fdata && empty ===''? fdata : data;
+        let FData = fdata && empty === '' ? fdata : data;
 
         console.log(value);
 
         setSData(value)
         if (value !== 0) {
-            let sData = FData.sort((a,b) => {
+            let sData = FData.sort((a, b) => {
                 if (value === 'hl') {
                     return b.price - a.price
                 } else if (value === 'lh') {
@@ -80,7 +80,7 @@ function Medinice(props) {
                             onChange={(e) => handlesearch(e.target.value)}
                         />
 
-                        <select  value={sData} onChange={(e) => handleSorting(e.target.value)}>
+                        <select value={sData} onChange={(e) => handleSorting(e.target.value)}>
                             <option value="0" selected>---Select Sorting---</option>
                             <option value="hl">Price: high to low</option>
                             <option value="lh">Price: low to heigh</option>

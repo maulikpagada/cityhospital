@@ -1,4 +1,3 @@
-import { deletemedicin, putmedicin } from "../../redux/action/medicin.action"
 import {  deleteRequest, getRequest, postRequest, putRequest } from "../request"
 
 export const fetachAllmedicineds = () => {
