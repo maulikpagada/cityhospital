@@ -43,7 +43,7 @@ function MedNew(props) {
         dispatch(getmedicin());
     }, [])
 
-    const medicineData = (values) => {
+    const  medicineData = (values) => {
         // let localData = JSON.parse(localStorage.getItem("medicine"));
 
         // let idData = Math.round(Math.random() * 1000);

@@ -38,16 +38,18 @@ function App() {
             </Switch>
             <Footer />
 
-            {/* <Layout>
-              <Switch>
-                <Route exact path={"/Medicines"} component={Medicines} />
-                <Route exact path={"/Doctor"} component={Doctor} />
-                <Route exact path={"/Counter"} component={Counter} />
-              </Switch>
-            </Layout> */}
+            
           </PersistGate>
         </Provider>
       </ThemeProvider>
+
+      {/* <Layout>
+        <Switch>
+          <Route exact path={"/Medicines"} component={Medicines} />
+          <Route exact path={"/Doctor"} component={Doctor} />
+          <Route exact path={"/Counter"} component={Counter} />
+        </Switch>
+      </Layout> */}
     </>
   );
 }

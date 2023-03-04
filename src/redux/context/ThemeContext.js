@@ -25,7 +25,6 @@ export const ThemeProvider = ({children}) => {
                 ...state,
                 toggle_theme
             }}
-        ff
         >
             {children}
         </ThemeContext.Provider>

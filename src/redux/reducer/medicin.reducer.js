@@ -15,7 +15,7 @@ export const medicineReducer = (state = initialState, action) => {
                 ...state,
                 medicine: action.payload
             }
-            
+                
         case ActionTypes.MEDICIN_ADD:
             return {
                 ...state,
