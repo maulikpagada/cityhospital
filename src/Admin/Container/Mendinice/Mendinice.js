@@ -92,7 +92,7 @@ function MedNew(props) {
 
         // localStorage.setItem("medicine", JSON.stringify(dData));
         // setMedData(dData)
-
+        
         dispatch(deletemedicin(id));
         handleDClose();
         setDid();

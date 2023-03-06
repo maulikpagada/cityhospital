@@ -1,15 +1,25 @@
 import { AddMedicineds, DeleteMedicineds, EditMedicineds, fetachAllmedicineds } from "../../common/apis/medicines.apis";
-import * as ActionTypes from "../ActionTypes"
+import { addDoc, collection } from "firebase/firestore";
+import { getDocs } from "firebase/firestore"; 
 
-export const getmedicin = () => (dispatch) => {
+
+import * as ActionTypes from "../ActionTypes"
+import { db } from "../../firebase";
+
+export const getmedicin = () => async(dispatch) => {
     // console.log("action");
     try {
         // fetch('http://localhost:3004/medicin')
         //     .then((response) => response.json())
         //     .then((data) => dispatch({ type: ActionTypes.MEDICIN_GET, payload: data }));
 
-        fetachAllmedicineds()
-            .then((response) => dispatch({ type: ActionTypes.MEDICIN_GET, payload: response.data }))
+        // fetachAllmedicineds()
+        // .then((response) => dispatch({ type: ActionTypes.MEDICIN_GET, payload: response.data }))
+        const querySnapshot = await getDocs(collection(db, "medicin"));
+        querySnapshot.forEach((data) => {
+            console.log(`${data.id} => ${data.data()}`);
+        });
+
 
 
     } catch (error) {
@@ -17,7 +27,7 @@ export const getmedicin = () => (dispatch) => {
     }
 }
 
-export const postmedicin = (data) => (dispatch) => {
+export const postmedicin = (data) => async (dispatch) => {
     // console.log("ACTION");
     try {
         // fetch('http://localhost:3004/medicin', {
@@ -30,8 +40,11 @@ export const postmedicin = (data) => (dispatch) => {
         //     .then((response) => response.json())
         //     .then((data) => dispatch({ type: ActionTypes.MEDICIN_ADD, payload: data }))
 
-        AddMedicineds(data)
-            .then((response) => dispatch({ type: ActionTypes.MEDICIN_ADD, payload: response.data }))
+        // AddMedicineds(data)
+        //     .then((response) => dispatch({ type: ActionTypes.MEDICIN_ADD, payload: response.data }))
+
+        const docRef = await addDoc(collection(db, "medicin"), data);
+        console.log("Document written with ID: ", docRef.id);
 
 
     } catch (error) {

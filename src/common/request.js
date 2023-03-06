@@ -47,4 +47,4 @@ export const deleteRequest = (path, id) => {
         method: 'delete',
         url: path+id
     })
-}   
+}       

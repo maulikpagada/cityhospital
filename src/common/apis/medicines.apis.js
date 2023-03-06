@@ -14,4 +14,4 @@ export const EditMedicineds = (data) => {
 
 export const DeleteMedicineds = (id) => {
     return deleteRequest('medicin/', id)
-}
+}   
