@@ -1,12 +1,16 @@
 import { AddMedicineds, DeleteMedicineds, EditMedicineds, fetachAllmedicineds } from "../../common/apis/medicines.apis";
 import { addDoc, collection } from "firebase/firestore";
-import { getDocs } from "firebase/firestore"; 
+import { getDocs } from "firebase/firestore";
+import { doc, updateDoc, deleteField } from "firebase/firestore";
+import { deleteDoc } from "firebase/firestore";
+
+
 
 
 import * as ActionTypes from "../ActionTypes"
 import { db } from "../../firebase";
 
-export const getmedicin = () => async(dispatch) => {
+export const getmedicin = () => async (dispatch) => {
     // console.log("action");
     try {
         // fetch('http://localhost:3004/medicin')
@@ -16,12 +20,19 @@ export const getmedicin = () => async(dispatch) => {
         // fetachAllmedicineds()
         // .then((response) => dispatch({ type: ActionTypes.MEDICIN_GET, payload: response.data }))
         const querySnapshot = await getDocs(collection(db, "medicin"));
-        querySnapshot.forEach((data) => {
-            console.log(`${data.id} => ${data.data()}`);
+
+        let data = []
+
+        querySnapshot.forEach((doc) => {
+
+            data.push({
+                id: doc.id,
+                ...doc.data()
+            })
+
+            dispatch({ type: ActionTypes.MEDICIN_GET, payload: data })
+            // console.log(`${doc.id} => ${doc.data()}`);
         });
-
-
-
     } catch (error) {
 
     }
@@ -44,15 +55,16 @@ export const postmedicin = (data) => async (dispatch) => {
         //     .then((response) => dispatch({ type: ActionTypes.MEDICIN_ADD, payload: response.data }))
 
         const docRef = await addDoc(collection(db, "medicin"), data);
-        console.log("Document written with ID: ", docRef.id);
 
+        dispatch({ type: ActionTypes.MEDICIN_ADD, payload: { id: docRef.id, ...data } })
 
     } catch (error) {
 
     }
 }
 
-export const putmedicin = (data) => (dispatch) => {
+export const putmedicin = (data) => async (dispatch) => {
+    console.log(data);
     try {
         // fetch('http://localhost:3004/medicin/' + data.id, {
         //     method: 'PUT',
@@ -63,14 +75,23 @@ export const putmedicin = (data) => (dispatch) => {
         // })
         //     .then((response) => response.json())
         //     .then((data) => dispatch({ type: ActionTypes.MEDICIN_UPDATE, payload: data }))
-        EditMedicineds(data)
-            .then((response) => dispatch({ type: ActionTypes.MEDICIN_UPDATE, payload: response.data }))
+
+
+        // EditMedicineds(data)
+        //     .then((response) => dispatch({ type: ActionTypes.MEDICIN_UPDATE, payload: response.data }))
+
+        const washingtonRef = doc(db, "medicin", data.id);  
+
+        await updateDoc(washingtonRef, data);
+
+        dispatch({ type: ActionTypes.MEDICIN_UPDATE, payload:data})
+
     } catch (error) {
 
     }
 }
 
-export const deletemedicin = (id) => (dispatch) => {
+export const deletemedicin = (id) => async (dispatch) => {
     console.log(id);
     try {
         // fetch('http://localhost:3004/medicin/' + id, {
@@ -79,9 +100,19 @@ export const deletemedicin = (id) => (dispatch) => {
 
         //     .then((response) => response.json())
         //     .then(() => dispatch({ type: ActionTypes.MEDICIN_DELETE, payload: id }))
-        DeleteMedicineds(id)
-            .then(() => dispatch({ type: ActionTypes.MEDICIN_DELETE, payload: id }))
+
+
+        // DeleteMedicineds(id)
+        //     .then(() => dispatch({ type: ActionTypes.MEDICIN_DELETE, payload: id }))
+
+
+
+        await deleteDoc(doc(db, "medicin", id));
+
+
+        dispatch({ type: ActionTypes.MEDICIN_DELETE, payload: id })
+
     } catch (error) {
 
     }
-}
+}   
